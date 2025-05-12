@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<ProductSysMag.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "Products";
+}
+<section class="content">
+
+    <div class="container-fluid">
+
+        <div class="card">
+
+            <dvi class="card-header">
+                <h3 class="card-title"> Prodcts List </h3>
+                <div class="card-tools">
+                    <a href="~/Products/Add" class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i>
+                        Add Product
+                    </a>
+                </div>
+            </dvi>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Cerated Date</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                
+                                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                                <td>
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,4 +1,4 @@
-namespace ProductSysMag.Models
+namespace ProductSystemManagement.Models
 {
     public class ErrorViewModel
     {

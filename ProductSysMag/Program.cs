@@ -1,7 +1,14 @@
+using ProductSysMag.ProductReboistory;
+using ProductSystemManagement.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<DapperContext>();
+
+builder.Services.AddScoped<ProductsReboistory>();
 
 var app = builder.Build();
 
